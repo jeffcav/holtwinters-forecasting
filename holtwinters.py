@@ -1,4 +1,8 @@
-
+from estimator import *
+#Variaveis globais usadas pelo programa
+a0 = []
+b1 = []
+sazonal_components = []
 
 time_series_soda = [189, 229, 249, 289, 260, 431, 660, 777, 915, 613, 485, 
           277, 244, 296, 319, 370, 313, 556, 831, 960, 1152, 759, 
@@ -15,7 +19,7 @@ def calculateMovingAverage(time_series, period_size, period):
     
     
 def calculateS(time_series, t, period_size, tendence_component):
-    period = (t/period_size) + 1
+    period = int( (t/period_size) + 1 )
     corresponding_moving_average = calculateMovingAverage(time_series, period_size, period)
     j = t % period_size
     
@@ -30,14 +34,11 @@ def calculateSazonalComponents(sazonal_averages, L, sazonal_averages_sum):
 
     
 def hwm(time_series, m, L):
-    a0 = []
-    b1 = []
     snt = []
     sazonal_averages_sum = 0.0
     S = []
     Sn = []
     sazonal_averages = []
-    sazonal_components = []
     sazonal_components_t = []
 
     first_period_average = calculateMovingAverage(time_series, L, 1)
@@ -59,13 +60,31 @@ def hwm(time_series, m, L):
     sazonal_components.append( calculateSazonalComponents(sazonal_averages, L, sazonal_averages_sum) )
     #Agora ja temos a0(0), b1(0) e Sn_t(0)
 
-    
-
 def main():
     m=3
     L=12
     
     hwm(time_series_soda, m, L)
-    
-main()
+    print(a0)
+    print(b1)
+    print(sazonal_components)
 
+class HoltWintersEstimator(Estimator):
+    """ A class that implements the Holt-Winters model for estimation. 
+    Attributes:
+        m: Number of periods in the time series. For example, if you are dealing with a 3 years of observation, m = 3.
+        L: Indicates the period size. For example, if you are dealing with years, L = 12.
+    """
+
+    def __init__(self, time_series, periods, period_size):
+        """ Initializes a Holt-Winters estimator. """
+        super(HoltWintersEstimator, self).setTimeSeries(time_series)
+        self.periods = periods
+        self.period_size = period_size
+
+    def estimate(self, t_base, t):
+        """ Estimate the value when time is t, based on the t_base observation. Often t_base is t-1. """
+        pass
+
+main()
+hwe = HoltWintersEstimator(time_series_soda, 3, 12)
