@@ -12,6 +12,6 @@ class Estimator(object):
 		self.time_series = time_series
 
 	@abstractmethod
-	def estimate(self, t_base, t):
+	def estimate(self, time, base_time):
 		""" Abstract method. Must be implemented by Estimator's subclasses to run the implemented estimation algorithm."""
 		pass
