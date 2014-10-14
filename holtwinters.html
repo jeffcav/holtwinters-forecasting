@@ -50,17 +50,25 @@ Attributes:<br>
 Methods defined here:<br>
 <dl><dt><a name="HoltWintersEstimator-__init__"><strong>__init__</strong></a>(self, time_series, number_of_seasons, season_size)</dt><dd><tt>Initializes&nbsp;a&nbsp;Holt-Winters&nbsp;estimator.</tt></dd></dl>
 
+<dl><dt><a name="HoltWintersEstimator-calculateComponents"><strong>calculateComponents</strong></a>(self, alpha, beta, gamma)</dt></dl>
+
 <dl><dt><a name="HoltWintersEstimator-estimate"><strong>estimate</strong></a>(self, time, base_time)</dt><dd><tt>Estimate&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;function&nbsp;on&nbsp;time,&nbsp;based&nbsp;on&nbsp;the&nbsp;base_time&nbsp;observation.&nbsp;Often&nbsp;base_time&nbsp;is&nbsp;time-1.</tt></dd></dl>
+
+<dl><dt><a name="HoltWintersEstimator-getSeasonalComponent"><strong>getSeasonalComponent</strong></a>(self, time)</dt></dl>
 
 <dl><dt><a name="HoltWintersEstimator-initializeComponents"><strong>initializeComponents</strong></a>(self)</dt><dd><tt>Initializes&nbsp;the&nbsp;components&nbsp;of&nbsp;the&nbsp;Holt-Winters&nbsp;model.</tt></dd></dl>
 
+<dl><dt><a name="HoltWintersEstimator-insertSeasonalComponent"><strong>insertSeasonalComponent</strong></a>(self, seasonal_index, season, value)</dt></dl>
+
 <dl><dt><a name="HoltWintersEstimator-seasonMovingAverage"><strong>seasonMovingAverage</strong></a>(self, season)</dt><dd><tt>Returns&nbsp;the&nbsp;moving&nbsp;average&nbsp;of&nbsp;a&nbsp;season.</tt></dd></dl>
 
-<dl><dt><a name="HoltWintersEstimator-seasonOfTime"><strong>seasonOfTime</strong></a>(self, time)</dt><dd><tt>Returns&nbsp;the&nbsp;season&nbsp;which&nbsp;holds&nbsp;the&nbsp;data&nbsp;at&nbsp;a&nbsp;given&nbsp;time.</tt></dd></dl>
+<dl><dt><a name="HoltWintersEstimator-seasonOfTime"><strong>seasonOfTime</strong></a>(self, time)</dt><dd><tt>Returns&nbsp;the&nbsp;season&nbsp;which&nbsp;holds&nbsp;the&nbsp;data&nbsp;at&nbsp;a&nbsp;given&nbsp;time,&nbsp;from&nbsp;1&nbsp;to&nbsp;number_of_seasons</tt></dd></dl>
 
-<dl><dt><a name="HoltWintersEstimator-seasonalFactor"><strong>seasonalFactor</strong></a>(self, time, tendence_component)</dt><dd><tt>Calculates&nbsp;the&nbsp;seasonal&nbsp;factor&nbsp;for&nbsp;each&nbsp;historical&nbsp;data&nbsp;in&nbsp;the&nbsp;time&nbsp;series.</tt></dd></dl>
+<dl><dt><a name="HoltWintersEstimator-seasonalFactor"><strong>seasonalFactor</strong></a>(self, time)</dt><dd><tt>Calculates&nbsp;the&nbsp;seasonal&nbsp;factor&nbsp;for&nbsp;each&nbsp;historical&nbsp;data&nbsp;in&nbsp;the&nbsp;time&nbsp;series.</tt></dd></dl>
 
-<dl><dt><a name="HoltWintersEstimator-seasonalIndexOfTime"><strong>seasonalIndexOfTime</strong></a>(self, time)</dt><dd><tt>Returns&nbsp;the&nbsp;seasonal&nbsp;correspondence&nbsp;of&nbsp;time.&nbsp;For&nbsp;example,&nbsp;if&nbsp;24&nbsp;month-by-month&nbsp;observations&nbsp;were&nbsp;made&nbsp;and&nbsp;time=13,&nbsp;it&nbsp;corresponds&nbsp;to&nbsp;the&nbsp;first&nbsp;element&nbsp;of&nbsp;the&nbsp;season&nbsp;it&nbsp;belongs&nbsp;to.</tt></dd></dl>
+<dl><dt><a name="HoltWintersEstimator-seasonalIndexOfTime"><strong>seasonalIndexOfTime</strong></a>(self, time)</dt><dd><tt>Returns&nbsp;the&nbsp;seasonal&nbsp;correspondence&nbsp;of&nbsp;time,&nbsp;from&nbsp;1&nbsp;to&nbsp;season_size.&nbsp;<br>
+For&nbsp;example,&nbsp;if&nbsp;24&nbsp;month-by-month&nbsp;observations&nbsp;were&nbsp;made&nbsp;and&nbsp;time=13,&nbsp;<br>
+it&nbsp;corresponds&nbsp;to&nbsp;the&nbsp;first&nbsp;element&nbsp;of&nbsp;the&nbsp;season&nbsp;it&nbsp;belongs&nbsp;to.</tt></dd></dl>
 
 <hr>
 Methods inherited from <a href="estimator.html#Estimator">estimator.Estimator</a>:<br>
