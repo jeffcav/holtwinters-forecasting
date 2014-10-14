@@ -39,7 +39,7 @@ Attributes:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;seasonal_factor:&nbsp;Indicates&nbsp;the&nbsp;seasonal&nbsp;factor&nbsp;of&nbsp;each&nbsp;observation&nbsp;on&nbsp;your&nbsp;data&nbsp;set.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;average_component:&nbsp;Indicates&nbsp;the&nbsp;average&nbsp;component&nbsp;in&nbsp;the&nbsp;Holt-Winters&nbsp;model.<br>
 &nbsp;&nbsp;&nbsp;&nbsp;tendence_component:&nbsp;Indicates&nbsp;the&nbsp;tendence&nbsp;component&nbsp;in&nbsp;the&nbsp;Holt-Winters&nbsp;model.<br>
-&nbsp;&nbsp;&nbsp;&nbsp;seasonal_component:&nbsp;Indicates&nbsp;the&nbsp;seasonal&nbsp;component&nbsp;in&nbsp;the&nbsp;Holt-Winters&nbsp;model.<br>&nbsp;</tt></td></tr>
+&nbsp;&nbsp;&nbsp;&nbsp;seasonal_component:&nbsp;Indicates&nbsp;the&nbsp;seasonal&nbsp;component&nbsp;in&nbsp;the&nbsp;Holt-Winters&nbsp;model.&nbsp;It&nbsp;is&nbsp;a&nbsp;matrix&nbsp;whose&nbsp;first&nbsp;index&nbsp;is&nbsp;the&nbsp;seasonal&nbsp;index&nbsp;of&nbsp;a&nbsp;given&nbsp;time,&nbsp;and&nbsp;the&nbsp;second&nbsp;index&nbsp;is&nbsp;the&nbsp;season&nbsp;itself.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="holtwinters.html#HoltWintersEstimator">HoltWintersEstimator</a></dd>
@@ -54,11 +54,11 @@ Methods defined here:<br>
 
 <dl><dt><a name="HoltWintersEstimator-estimate"><strong>estimate</strong></a>(self, time, base_time)</dt><dd><tt>Estimate&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;function&nbsp;on&nbsp;time,&nbsp;based&nbsp;on&nbsp;the&nbsp;base_time&nbsp;observation.&nbsp;Often&nbsp;base_time&nbsp;is&nbsp;time-1.</tt></dd></dl>
 
-<dl><dt><a name="HoltWintersEstimator-getSeasonalComponent"><strong>getSeasonalComponent</strong></a>(self, time)</dt></dl>
+<dl><dt><a name="HoltWintersEstimator-getSeasonalComponent"><strong>getSeasonalComponent</strong></a>(self, time)</dt><dd><tt>Returns&nbsp;a&nbsp;value&nbsp;from&nbsp;the&nbsp;seasonal&nbsp;component&nbsp;matrix.</tt></dd></dl>
 
 <dl><dt><a name="HoltWintersEstimator-initializeComponents"><strong>initializeComponents</strong></a>(self)</dt><dd><tt>Initializes&nbsp;the&nbsp;components&nbsp;of&nbsp;the&nbsp;Holt-Winters&nbsp;model.</tt></dd></dl>
 
-<dl><dt><a name="HoltWintersEstimator-insertSeasonalComponent"><strong>insertSeasonalComponent</strong></a>(self, seasonal_index, season, value)</dt></dl>
+<dl><dt><a name="HoltWintersEstimator-insertSeasonalComponent"><strong>insertSeasonalComponent</strong></a>(self, seasonal_index, season, value)</dt><dd><tt>Inserts&nbsp;a&nbsp;value&nbsp;in&nbsp;the&nbsp;seasonal&nbsp;component&nbsp;matrix.</tt></dd></dl>
 
 <dl><dt><a name="HoltWintersEstimator-seasonMovingAverage"><strong>seasonMovingAverage</strong></a>(self, season)</dt><dd><tt>Returns&nbsp;the&nbsp;moving&nbsp;average&nbsp;of&nbsp;a&nbsp;season.</tt></dd></dl>
 
